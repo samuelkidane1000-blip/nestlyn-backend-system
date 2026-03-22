@@ -11,6 +11,7 @@ import subscriptionRoutes from "./routes/subscriptions.js";
 import adminRoutes from "./routes/admin.js";
 dotenv.config();
 initDb();
+import "./db/seed.js";
 const stripe=process.env.STRIPE_SECRET_KEY ? new Stripe(process.env.STRIPE_SECRET_KEY) : null;
 const app=express();
 app.use(cors({
