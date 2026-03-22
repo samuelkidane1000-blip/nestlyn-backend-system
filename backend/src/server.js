@@ -13,7 +13,9 @@ dotenv.config();
 initDb();
 const stripe=process.env.STRIPE_SECRET_KEY ? new Stripe(process.env.STRIPE_SECRET_KEY) : null;
 const app=express();
-app.use(cors({origin:process.env.FRONTEND_URL,credentials:true}));
+app.use(cors({
+  origin: "*"
+}));
 app.use(morgan("dev"));
 app.use("/webhook", express.raw({type:"application/json"}));
 app.use(express.json());
